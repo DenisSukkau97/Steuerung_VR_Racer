@@ -5,7 +5,7 @@
 
 # Bash befehl: 
 
-sudo nano /etc/systemd/system/rc-car.service
+sudo nano /etc/systemd/system/Autostart_rc-car.service
 #######################################################
 
 
@@ -20,13 +20,13 @@ Wants=bluetooth.service
 Type=simple
 User=vrracer
 Group=vrracer
-WorkingDirectory=/home/vrracer/rc-car
+WorkingDirectory=/home/Steuerung
 ExecStartPre=/bin/sleep 12
-ExecStart=/home/vrracer/rc-car/venv/bin/python3 /home/vrracer/rc-car/rc_car_ps_controller.py
+ExecStart=/home/Steuerung/venv/bin/python3 /home/Steuerung/rc_car_ps_controller.py
 Restart=always
 RestartSec=8
-StandardOutput=append:/home/vrracer/rc-car/autostart.log
-StandardError=append:/home/vrracer/rc-car/autostart.log
+StandardOutput=append:/home/Steuerung/autostart.log
+StandardError=append:/home/Steuerung/autostart.log
 Environment="PYTHONUNBUFFERED=1"
 
 [Install]
@@ -39,6 +39,6 @@ Aktivieren:
 # Bash Befehl 
 
 sudo systemctl daemon-reload
-sudo systemctl enable rc-car.service
-sudo systemctl start rc-car.service
+sudo systemctl enable Autostart_rc-car.service
+sudo systemctl start Autostart_rc-car.service
 
